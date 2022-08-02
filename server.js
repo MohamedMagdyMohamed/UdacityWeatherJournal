@@ -27,3 +27,11 @@ app.listen(port, listening);
 function listening(){
     console.log(`server running on localhost: {$port}`); 
 }
+
+// Initialize all route with a callback function
+app.get('/all', getrequestListener);
+
+// Callback function to complete GET '/all'
+function getrequestListener(req, res) {
+    res.send(projectData);
+}

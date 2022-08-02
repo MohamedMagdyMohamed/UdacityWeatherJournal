@@ -25,7 +25,7 @@ app.use(express.static('website'));
 const port = 8000;
 app.listen(port, listening);
 function listening(){
-    console.log(`server running on localhost: {$port}`); 
+    console.log(`server running on localhost: ${port}`); 
 }
 
 // Initialize all route with a callback function

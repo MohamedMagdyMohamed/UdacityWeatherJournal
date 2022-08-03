@@ -10,7 +10,21 @@ document.getElementById('generate').addEventListener('click', generate);
 /* Function called by event listener */
 function generate() {
     const zip = document.getElementById('zip').value;
+
+    getWebApiData(zip);
+}
+
+/* Function to GET Web API Data*/
+const getWebApiData = async (zip) => {
     const url = baseUrl + zipQuery + zip + apiKey;
+
+    const response  = await fetch(url);
+    try {
+        const data = await response.json();
+        console.log("data", data);
+    } catch (error) {
+        console.log("error", error);
+    }
 }
 
 // Create a new date instance dynamically with JS

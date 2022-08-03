@@ -35,3 +35,12 @@ app.get('/all', getrequestListener);
 function getrequestListener(req, res) {
     res.send(projectData);
 }
+
+// Post Route
+app.post('/add', addProjectData);
+
+function addProjectData(req, res) {
+    console.log(req.body);
+    projectData = req.body;
+    res.send(projectData);
+}

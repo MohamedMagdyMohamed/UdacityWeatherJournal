@@ -1,6 +1,17 @@
 /* Global Variables */
 // Personal API Key for OpenWeatherMap API
-const apiKey = '48687b1f0e51231060260cbd3c10dfc8&units=imperial';
+const apiKey = '&appid=48687b1f0e51231060260cbd3c10dfc8&units=imperial';
+const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+const zipQuery = '?zip=';
+
+// Event listener to add function to existing HTML DOM element
+document.getElementById('generate').addEventListener('click', generate);
+
+/* Function called by event listener */
+function generate() {
+    const zip = document.getElementById('zip').value;
+    const url = baseUrl + zipQuery + zip + apiKey;
+}
 
 // Create a new date instance dynamically with JS
 let d = new Date();

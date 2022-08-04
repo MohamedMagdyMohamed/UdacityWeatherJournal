@@ -24,6 +24,7 @@ app.use(express.static('website'));
 // Setup Server
 const port = 8000;
 app.listen(port, listening);
+// Callback to debug
 function listening(){
     console.log(`server running on localhost: ${port}`); 
 }

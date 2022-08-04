@@ -22,7 +22,6 @@ function generate() {
 /* Function to GET Web API Data*/
 const getWebApiData = async (zip) => {
     const url = baseUrl + zipQuery + zip + apiKey;
-
     const response  = await fetch(url);
     try {
         const data = await response.json();
@@ -52,11 +51,6 @@ const postData = async (url = '', data = {}) => {
     console.log("error", error);
   }
 };
-
-
-// Create a new date instance dynamically with JS
-let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 /* Function to GET Project Data */
 const updateUI = async () => {

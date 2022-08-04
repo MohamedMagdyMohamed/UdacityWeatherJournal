@@ -41,6 +41,10 @@ app.post('/add', addProjectData);
 
 function addProjectData(req, res) {
     console.log(req.body);
-    projectData = req.body;
+    projectData = {
+        temp: req.body.temp,
+        date: req.body.dt,
+        feel: req.body.feelings
+    };
     res.send(projectData);
 }

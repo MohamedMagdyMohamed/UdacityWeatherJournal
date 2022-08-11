@@ -24,7 +24,9 @@ app.use(express.static('website'));
 // Setup Server
 const port = 8000;
 app.listen(port, listening);
-// Callback to debug
+/**
+ * Callback to debug
+ */
 function listening(){
     console.log(`server running on localhost: ${port}`); 
 }
@@ -32,7 +34,14 @@ function listening(){
 // Initialize all route with a callback function
 app.get('/all', getrequestListener);
 
-// Callback function to complete GET '/all'
+/**
+ * Callback function to complete GET '/all'
+ * 
+ * Send the projectData to the caller
+ * 
+ * @param {*} req request object received fromt the endpoint
+ * @param {*} res response object send to the one who calles this request
+ */
 function getrequestListener(req, res) {
     res.send(projectData);
 }
@@ -40,12 +49,20 @@ function getrequestListener(req, res) {
 // Post Route
 app.post('/add', addProjectData);
 
+/**
+ * re-intialize the projectData with the request data and send the data to teh caller
+ * 
+ * @param {*} req request object received fromt the endpoint
+ * @param {*} res response object send to the one who calles this request
+ */
 function addProjectData(req, res) {
     console.log(req.body);
+    // re-intialize the projectData with the request data
     projectData = {
         temp: req.body.temp,
         date: req.body.dt,
         feel: req.body.feelings
     };
+    // re-send the project data
     res.send(projectData);
 }
